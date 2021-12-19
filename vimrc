@@ -4,8 +4,8 @@ set encoding=utf-8
 let mapleader = " "
 
 set backspace=2   " Backspace deletes like most programs in insert mode
-set nobackup
-set nowritebackup
+" set nobackup
+" set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=50
 set ruler         " show the cursor position all the time
@@ -15,6 +15,100 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set modelines=0   " Disable modelines as a security precaution
 set nomodeline
+set cursorline
+set showmode      " Show what mode you’re currently in
+set title         " Show file title in terminal tab
+set nohlsearch
+" Ignore case when searching...
+set ignorecase
+" ...except if we input a capital letter
+set smartcase
+
+" Allow cursor keys in insert mode
+set esckeys
+
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+  set undodir=~/.vim/undo
+endif
+
+" Don’t create backups when editing files in certain directories
+set backupskip=/tmp/*,/private/tmp/*
+
+" Show “invisible” characters
+set lcs=tab:▸\ ,trail:·
+set list
+
+" Strip trailing whitespace (,ss)
+function! StripWhitespace()
+  let save_cursor = getpos(".")
+  let old_query = getreg('/')
+  :%s/\s\+$//e
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
+endfunction
+  noremap <leader>ss :call StripWhitespace()<CR>
+
+
+" strip trailing spaes on save
+let blacklist = ['markdown']
+autocmd BufWritePre * if index(blacklist, &ft) < 0 | :call StripWhitespace()
+
+" file browser view
+let g:netrw_liststyle=3
+
+" markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+"au BufRead,BufNewFile *.md setlocal textwidth=78
+autocmd Filetype markdown setlocal wrap
+autocmd Filetype markdown setlocal linebreak
+autocmd Filetype markdown setlocal nolist
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript', 'js=javascript']
+
+autocmd Filetype json setlocal tabstop=2
+autocmd Filetype css setlocal tabstop=2
+autocmd Filetype scss setlocal tabstop=2
+autocmd Filetype html setlocal tabstop=2
+
+" emmet shortcut
+let g:user_emmet_leader_key='<C-E>'
+
+" commentary
+autocmd FileType javascript setlocal commentstring=//\ %s
+
+" syntastic plugin
+" set statusline =%#warningmsg#
+" set statusline =%{SyntasticStatuslineFlag()}
+" set statusline =%*
+let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" set statusline =%#warningmsg#
+" set statusline =%{SyntasticStatuslineFlag()}
+" set statusline =%*
+" let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_error_symbol = '>'
+" let g:syntastic_style_error_symbol = '⁉️'
+" let g:syntastic_warning_symbol = '⚠️'
+" let g:syntastic_style_warning_symbol = '💩 '
+" highlight link SyntasticErrorSign SignColumn
+" highlight link SyntasticWarningSign SignColumn
+" highlight link SyntasticStyleErrorSign SignColumn
+" highlight link SyntasticStyleWarningSign SignColumn
+
+
+
+
+
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -106,11 +200,29 @@ endif
 
 " Make it obvious where 80 characters is
 set textwidth=80
-set colorcolumn=+1
+" set colorcolumn=+1
+
+
+if exists("+colorcolumn")
+  set colorcolumn=78
+endif
+
 
 " Numbers
-set number
-set numberwidth=5
+" Set relative line numbers if we can...
+if exists("+relativenumber")
+  " Due to a problem with relative line numbers not persisting across new
+  " tabs and splits, set no line numbers at all...
+      set nonumber
+  " ..then set relative ones.
+      set relativenumber
+  " ...otherwise let’s just have regular ones.
+else
+  set number
+endif
+
+" set number
+" set numberwidth=5
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -183,3 +295,16 @@ set diffopt+=vertical
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+" Interactions
+
+" Start scrolling slightly before the cursor reaches an edge
+set scrolloff=3
+set sidescrolloff=5
+" Scroll sideways a character at a time, rather than a screen at a time
+set sidescroll=1
+" Allow motions and back-spacing over line-endings etc
+set backspace=indent,eol,start
+set whichwrap=h,l,b,<,>,~,[,]
+
+

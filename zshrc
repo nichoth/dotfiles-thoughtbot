@@ -3,6 +3,8 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
+source ~/.z.sh
+
 # extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
 # these are loaded first, second, and third, respectively.
 _load_settings() {
@@ -39,3 +41,20 @@ _load_settings "$HOME/.zsh/configs"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# export NVM_DIR="/Users/nick/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+
+
+
+
+
+
