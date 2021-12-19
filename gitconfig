@@ -13,10 +13,18 @@
   co = checkout
   pf = push --force-with-lease
   s = status
+  ss = status -s
+  slog = log --graph --oneline --all --decorate
+  wdiff = diff --color-words
+  logad = log --pretty=format:'%C(yellow)%h %Creset %ad %an %Cgreen%d %Creset%s' --date=short
+
 [core]
-  excludesfile = ~/.gitignore
+  editor = vim
+  excludesfile = /Users/nick/.gitignore_global
+  #pager = less -+S
   autocrlf = input
 [merge]
+  tool = opendiff
   ff = only
 [commit]
   template = ~/.gitmessage
@@ -31,3 +39,4 @@
 [user]
 	name = nichoth
 	email = nichoth@gmail.com
+
