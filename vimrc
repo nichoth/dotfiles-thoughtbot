@@ -1,4 +1,10 @@
+set nocompatible
 set encoding=utf-8
+
+syntax enable
+set background=dark
+colorscheme solarized
+
 
 " Leader
 let mapleader = " "
@@ -126,6 +132,19 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 
 filetype plugin indent on
+" 4 spaces please
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set nowrap
+" set smartindent
+" set line-wrapping
+
+" Jump to the last cursor position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 augroup vimrcEx
   autocmd!
@@ -307,4 +326,6 @@ set sidescroll=1
 set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
 
+" Underscores denote words
+set iskeyword-=_
 

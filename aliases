@@ -7,6 +7,12 @@ alias v="$VISUAL"
 alias la="ls -a"
 alias ls="ls -p"
 
+# Easier navigation: .., ..., ...., .....
+ alias ..="cd .."
+ alias ...="cd ../.."
+ alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
 # Bundler
 alias b="bundle"
 
@@ -16,6 +22,10 @@ alias s="rspec"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
+
+# copy and paste
+alias pbp="pbpaste"
+alias pbc="pbcopy"
 
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then
