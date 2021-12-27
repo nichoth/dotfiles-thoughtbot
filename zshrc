@@ -3,6 +3,8 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
+# source ~/.git-prompt.sh
+
 source ~/.z.sh
 
 # extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
@@ -52,9 +54,9 @@ _load_settings "$HOME/.zsh/configs"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
+export PATH="$HOME/.cargo/bin:$PATH"
 
-
-
-
-
+# mkdir and then cd to the new dir
+# longhand version for reference: mkdir -p "newdir" && cd "$_"
+function md () { mkdir -p "$@" && cd "$@"; }
 
