@@ -3,7 +3,7 @@ alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
-alias ll="ls -al"
+alias ll="ls -alh"
 alias la="ls -a"
 alias ls="ls -p"
 
@@ -13,7 +13,7 @@ alias ls="ls -p"
  alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias gibojs="gibo SublimeText OSX Node Sass >> .gitignore && echo "bundle.js" >> .gitignore"
+alias gibojs="gibo dump SublimeText Node Sass >> .gitignore && echo "bundle.js" >> .gitignore"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
