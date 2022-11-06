@@ -60,3 +60,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # longhand version for reference: mkdir -p "newdir" && cd "$_"
 function md () { mkdir -p "$@" && cd "$@"; }
 
+
+# The next line updates PATH for Netlify's Git Credential Helper.
+test -f '/Users/nick/Library/Preferences/netlify/helper/path.zsh.inc' && source '/Users/nick/Library/Preferences/netlify/helper/path.zsh.inc'
+

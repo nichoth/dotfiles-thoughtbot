@@ -6,6 +6,7 @@ set background=dark
 let g:solarized_termtrans = 1 " This gets rid of the grey background
 colorscheme solarized
 
+execute pathogen#infect()
 
 " Leader
 let mapleader = " "
@@ -83,7 +84,7 @@ autocmd Filetype html setlocal tabstop=2
 let g:user_emmet_leader_key='<C-E>'
 
 " commentary
-autocmd FileType javascript setlocal commentstring=//\ %s
+autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=0 expandtab commentstring=//\ %s
 
 " syntastic plugin
 " set statusline =%#warningmsg#
@@ -329,4 +330,5 @@ set whichwrap=h,l,b,<,>,~,[,]
 
 " Underscores denote words
 set iskeyword-=_
+
 

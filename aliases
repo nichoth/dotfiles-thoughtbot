@@ -13,7 +13,7 @@ alias ls="ls -p"
  alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias gibojs="gibo dump SublimeText Node Sass >> .gitignore && echo "bundle.js" >> .gitignore"
+alias gibojs="echo \"bundle.js\n.DS_Store\n\" >> .gitignore"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
