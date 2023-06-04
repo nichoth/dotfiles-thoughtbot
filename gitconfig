@@ -19,6 +19,7 @@
   slogad = log --graph --oneline --all --decorate --date=format:%Y-%m-%d --pretty=format:"%h%x20%x20%an%x20%x20%ad%x20%x20%s"
   wdiff = diff --color-words
   logad = log --pretty=format:'%C(yellow)%h %Creset %ad %an %Cgreen%d %Creset%s' --date=short
+  tracking = ls-tree --full-tree --name-only -r HEAD
 
 [core]
   editor = vim

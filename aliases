@@ -1,16 +1,13 @@
 # Unix
 alias ln="ln -v"
-alias mkdir="mkdir -p"
-alias e="$EDITOR"
-alias v="$VISUAL"
 alias ll="ls -alh"
 alias la="ls -a"
 alias ls="ls -p"
 
 # Easier navigation: .., ..., ...., .....
- alias ..="cd .."
- alias ...="cd ../.."
- alias ....="cd ../../.."
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias gibojs="echo \"node_modules\nbundle.js\n.DS_Store\" >> .gitignore"
