@@ -10,7 +10,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias gibojs="echo \"node_modules\nbundle.js\n.DS_Store\" >> .gitignore"
+alias gibojs="echo \"node_modules\nbundle.js\n.DS_Store\n.env\" >> .gitignore"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
