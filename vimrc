@@ -69,7 +69,7 @@ let g:netrw_liststyle=3
 
 " markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-"au BufRead,BufNewFile *.md setlocal textwidth=78
+"au BufRead,BufNewFile *.md
 autocmd Filetype markdown setlocal wrap
 autocmd Filetype markdown setlocal linebreak
 autocmd Filetype markdown setlocal nolist
@@ -220,8 +220,15 @@ if executable('ag')
 endif
 
 " Make it obvious where 80 characters is
-set textwidth=80
+" set textwidth=80
 " set colorcolumn=+1
+
+" Line breaking. See https://stackoverflow.com/questions/12163885/how-to-stop-vim-from-creating-a-new-line-after-80
+" This will visually wrap but not insert newlines
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+set textwidth=0
 
 
 if exists("+colorcolumn")
