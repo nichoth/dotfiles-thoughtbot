@@ -3,6 +3,7 @@
   templatedir = ~/.git_template
 [push]
   default = current
+  autosetupremote = true
 [color]
   ui = auto
 [alias]
@@ -51,4 +52,7 @@
 # This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
 [include]
   path = /Users/nick/Library/Preferences/netlify/helper/git-config
+
+[pull]
+	rebase = true
 
