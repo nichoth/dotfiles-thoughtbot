@@ -40,8 +40,8 @@
 [diff]
   colorMoved = zebra
 [user]
-	name = nick thomas
-	email = nichoth@gmail.com
+	name = Nick Thomas
+	email = nichoth@nichoth.com
 
 [filter "lfs"]
 	process = git-lfs filter-process

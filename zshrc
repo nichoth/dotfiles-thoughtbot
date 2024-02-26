@@ -66,3 +66,11 @@ function findhere () { find "$@" -maxdepth 0 }
 # The next line updates PATH for Netlify's Git Credential Helper.
 test -f '/Users/nick/Library/Preferences/netlify/helper/path.zsh.inc' && source '/Users/nick/Library/Preferences/netlify/helper/path.zsh.inc'
 
+
+# pnpm
+export PNPM_HOME="/Users/nick/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
