@@ -3,6 +3,10 @@ thoughtbot dotfiles
 
 ![prompt](http://images.thoughtbot.com/thoughtbot-dotfiles-prompt.png)
 
+See also
+--------
+* [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+
 Requirements
 ------------
 
