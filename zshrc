@@ -76,3 +76,4 @@ esac
 # pnpm end
 # WarpStream
 export PATH="/Users/nick/.warpstream:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
