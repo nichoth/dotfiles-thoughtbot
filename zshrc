@@ -46,6 +46,7 @@ _load_settings "$HOME/.zsh/configs"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+setopt extended_glob
 
 # export NVM_DIR="/Users/nick/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
