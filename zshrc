@@ -7,6 +7,11 @@ done
 
 source ~/.z.sh
 
+# see https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
+export PATH=/opt/homebrew/bin:$PATH
+
 # extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
 # these are loaded first, second, and third, respectively.
 _load_settings() {

@@ -18,6 +18,7 @@
   slog = log --graph --oneline --all --decorate
   plog = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
   slogad = log --graph --oneline --all --decorate --date=format:%Y-%m-%d --pretty=format:"%h%x20%x20%an%x20%x20%ad%x20%x20%s"
+  first = "!git log --reverse --format='%h %ad %s' --date=short | head -n 1"
   wdiff = diff --color-words
   logad = log --pretty=format:'%C(yellow)%h %Creset %ad %an %Cgreen%d %Creset%s' --date=short
   tracking = ls-tree --full-tree --name-only -r HEAD
