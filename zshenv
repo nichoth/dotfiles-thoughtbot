@@ -29,3 +29,5 @@ fi
 unset _old_path
 
 . "$HOME/.cargo/env"
+
+source "$HOME/.aipack-base/bin/aip-env"

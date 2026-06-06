@@ -1,3 +1,10 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/Users/nick/.oh-my-zsh/custom/completions" $fpath)
+autoload -Uz compinit
+compinit
+# OPENSPEC:END
+
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
   source $function
@@ -6,6 +13,15 @@ done
 # source ~/.git-prompt.sh
 
 source ~/.z.sh
+
+killport() {
+  local pids=$(lsof -ti:"$1")
+  if [[ -z "$pids" ]]; then
+    echo "nothing on port $1"
+    return 1
+  fi
+  echo "$pids" | xargs kill "${2:-}"
+}
 
 # see https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html
 export GPG_TTY=$(tty)
@@ -83,3 +99,34 @@ esac
 # WarpStream
 export PATH="/Users/nick/.warpstream:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+export GPG_TTY=$(tty)
+
+# kimi k2
+## Use Moonshot AI's Kimi model with Claude CLI
+function kimi() {
+  (
+    export ANTHROPIC_BASE_URL=https://api.moonshot.ai/anthropic
+    export ANTHROPIC_AUTH_TOKEN="sk-5fLcJtMWSjVMSmUW608ODiEScVY7P4cncOhxOrJEFJCgzvSU"
+    export ANTHROPIC_MODEL=kimi-k2-thinking-turbo
+    export ANTHROPIC_SMALL_FAST_MODEL=kimi-k2-thinking
+    claude "$@"
+  )
+}
+
+alias t4="tree -L 4 -I 'node_modules|.git' --dirsfirst"
+alias t3="tree -L 3 -I 'node_modules|.git' --dirsfirst"
+
+
+# Added by Antigravity
+export PATH="/Users/nick/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.deno/bin:$PATH"
+
+
+# Turso
+export PATH="$PATH:/Users/nick/.turso"
+autoload -Uz zmv
+
+export PATH="$HOME/.local/bin:$PATH"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+

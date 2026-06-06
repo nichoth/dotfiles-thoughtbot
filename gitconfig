@@ -40,9 +40,11 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+	tool = vscode
 [user]
 	name = nichoth
 	email = nichoth@nichoth.com
+	signingkey = /Users/nick/.ssh/id_ed25519.pub
 
 [filter "lfs"]
 	process = git-lfs filter-process
@@ -57,3 +59,8 @@
 [pull]
 	rebase = true
 
+[gpg]
+	program = /usr/local/bin/gpg
+	format = ssh
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
