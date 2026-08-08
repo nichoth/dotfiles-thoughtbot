@@ -32,8 +32,10 @@ Install the dotfiles:
 
     env RCRC=$HOME/dotfiles/rcrc rcup
 
-After the initial installation, you can run `rcup` without the one-time variable `RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future runs of `rcup`). [See
-example](https://github.com/thoughtbot/dotfiles/blob/master/rcrc).
+After the initial installation, you can run `rcup` without the one-time variable
+`RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
+runs of `rcup`).
+[See example](https://github.com/thoughtbot/dotfiles/blob/master/rcrc).
 
 This command will create symlinks for config files in your home directory.
 Setting the `RCRC` environment variable tells `rcup` to use standard
@@ -136,9 +138,9 @@ Your `~/dotfiles-local/vimrc.bundles.local` might look like this:
 zsh Configurations
 ------------------
 
-Additional zsh configuration can go under the `~/dotfiles-local/zsh/configs` directory. This
-has two special subdirectories: `pre` for files that must be loaded first, and
-`post` for files that must be loaded last.
+Additional zsh configuration can go under the `~/dotfiles-local/zsh/configs`
+directory. This has two special subdirectories: `pre` for files that must be
+loaded first, and `post` for files that must be loaded last.
 
 For example, `~/dotfiles-local/zsh/configs/pre/virtualenv` makes use of various shell
 features which may be affected by your settings, so load it first:

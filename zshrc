@@ -20,7 +20,7 @@ killport() {
     echo "nothing on port $1"
     return 1
   fi
-  echo "$pids" | xargs kill "${2:-}"
+  echo "$pids" | xargs kill ${2:--15}
 }
 
 # see https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html
@@ -129,4 +129,26 @@ autoload -Uz zmv
 
 export PATH="$HOME/.local/bin:$PATH"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+# Capacitor 8 builds compile at Java 21; your JAVA_HOME is JDK 17.
+# Point it at Android Studio's bundled JBR 21 (arm64, already on disk).
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+
+# ghbatchmerge nichoth/template-netlify-app
+ghbatchmerge () {
+  REPO="${1:?usage: gh-batch-merge-clean owner/repo}"
+  for n in $(gh pr list -R "$REPO" --state open --json number -q '.[].number'); do
+    state=$(gh pr view -R "$REPO" "$n" --json mergeStateStatus -q .mergeStateStatus)
+    if [ "$state" = "CLEAN" ]; then
+      echo "Merging #$n"
+      gh pr merge -R "$REPO" "$n" --squash --delete-branch
+    else
+      echo "Skipping #$n ($state)"
+    fi
+  done
+}
 
